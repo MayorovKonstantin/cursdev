@@ -157,47 +157,13 @@
         background-color: #003d99;
       }
 
-      /* Hero-блок - Современный дизайн */
+      /* Hero-блок */
       .hero {
-        background: linear-gradient(135deg, #0056D2 0%, #003d99 50%, #001a4d 100%);
+        background: linear-gradient(135deg, #0056D2 0%, #003d99 100%);
         color: white;
-        padding: 140px 0 120px;
+        padding: 120px 0;
         position: relative;
         overflow: hidden;
-        animation: heroFadeIn 1s ease-out;
-      }
-
-      @keyframes heroFadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .hero::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
-        animation: pulse 15s infinite ease-in-out;
-      }
-
-      @keyframes pulse {
-        0%, 100% {
-          transform: scale(1);
-          opacity: 0.5;
-        }
-        50% {
-          transform: scale(1.1);
-          opacity: 0.8;
-        }
       }
 
       .hero::after {
@@ -206,225 +172,29 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 120px;
+        height: 100px;
         background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%23fff'%3E%3C/path%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%23fff'%3E%3C/path%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E") repeat-x bottom;
-        z-index: 1;
       }
 
       .hero-content {
         position: relative;
-        z-index: 2;
+        z-index: 1;
         text-align: center;
-        max-width: 900px;
+        max-width: 800px;
         margin: 0 auto;
-        animation: contentSlideUp 1s ease-out 0.3s both;
-      }
-
-      @keyframes contentSlideUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
       }
 
       .hero h1 {
         color: white;
-        font-size: 3.8rem;
-        margin-bottom: 25px;
-        font-weight: 800;
-        line-height: 1.1;
-        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        letter-spacing: -0.5px;
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        font-weight: 700;
       }
 
       .hero p {
-        font-size: 1.35rem;
-        margin-bottom: 35px;
-        color: rgba(255, 255, 255, 0.95);
-        line-height: 1.7;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .hero-stats {
-        display: flex;
-        justify-content: center;
-        gap: 60px;
-        margin-top: 50px;
-        animation: statsFadeIn 1s ease-out 0.6s both;
-      }
-
-      @keyframes statsFadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .stat-item {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .stat-icon {
-        font-size: 2rem;
-        margin-bottom: 10px;
-        display: block;
-      }
-
-      .stat-number {
-        font-size: 2.5rem;
-        font-weight: 800;
-        color: white;
-        display: block;
-        line-height: 1;
-        margin-bottom: 8px;
-      }
-
-      .stat-label {
-        font-size: 0.95rem;
-        color: rgba(255, 255, 255, 0.8);
-        font-weight: 500;
-      }
-
-      .stat-icon {
-        font-size: 1.5rem;
-        margin-bottom: 8px;
-        display: block;
-      }
-
-      .hero-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        padding: 10px 24px;
-        border-radius: 50px;
-        font-size: 0.95rem;
-        font-weight: 500;
+        font-size: 1.25rem;
         margin-bottom: 30px;
-        animation: fadeInDown 0.8s ease;
-        color: white;
-      }
-
-      @keyframes fadeInDown {
-        from {
-          opacity: 0;
-          transform: translateY(-20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .hero-badge::before {
-        content: '✨';
-        font-size: 1.1rem;
-      }
-
-      /* Hero particles container */
-      .hero-particles {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: 0;
-      }
-
-      .particle {
-        position: absolute;
-        width: 8px;
-        height: 8px;
-        background: rgba(255, 255, 255, 0.4);
-        border-radius: 50%;
-        animation: floatParticle 20s infinite linear;
-      }
-
-      @keyframes floatParticle {
-        0% {
-          transform: translateY(100vh) rotate(0deg);
-          opacity: 0;
-        }
-        10% {
-          opacity: 1;
-        }
-        90% {
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(-100vh) rotate(720deg);
-          opacity: 0;
-        }
-      }
-
-      .hero-buttons {
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        animation: buttonsFadeIn 1s ease-out 0.9s both;
-      }
-
-      @keyframes buttonsFadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .hero .btn-primary,
-      .hero .btn-secondary {
-        padding: 16px 36px;
-        font-size: 1.1rem;
-        border-radius: 50px;
-        font-weight: 600;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      }
-
-      .hero .btn-primary:hover,
-      .hero .btn-secondary:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-      }
-
-      .hero .btn-primary {
-        background: linear-gradient(135deg, #0056D2 0%, #007bff 100%);
-        border: none;
-      }
-
-      .hero .btn-primary:hover {
-        background: linear-gradient(135deg, #007bff 0%, #0056D2 100%);
-      }
-
-      .hero .btn-secondary {
-        background: rgba(255, 255, 255, 0.1);
-        border: 2px solid rgba(255, 255, 255, 0.5);
-        backdrop-filter: blur(10px);
-      }
-
-      .hero .btn-secondary:hover {
-        background: rgba(255, 255, 255, 0.2);
-        border-color: white;
+        color: rgba(255, 255, 255, 0.9);
       }
 
       /* Блок "О курсе" */
@@ -856,51 +626,6 @@
         min-height: 120px;
         resize: vertical;
       }
-
-      /* Адаптивность для Hero */
-      @media (max-width: 768px) {
-        .hero {
-          padding: 100px 0 80px;
-        }
-
-        .hero h1 {
-          font-size: 2.5rem;
-        }
-
-        .hero p {
-          font-size: 1.1rem;
-        }
-
-        .hero-stats {
-          flex-direction: column;
-          gap: 30px;
-        }
-
-        .hero-buttons {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .hero .btn-primary,
-        .hero .btn-secondary {
-          width: 100%;
-          max-width: 300px;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .hero h1 {
-          font-size: 2rem;
-        }
-
-        .hero p {
-          font-size: 1rem;
-        }
-
-        .stat-number {
-          font-size: 2rem;
-        }
-      }
     </style>
   </head>
   <body>
@@ -927,44 +652,13 @@
 
     <!-- Hero-блок -->
     <section class="hero">
-      <!-- Animated background particles -->
-      <div class="hero-particles" id="heroParticles"></div>
-      
       <div class="container">
         <div class="hero-content">
-          <div class="hero-badge">
-            <span>Проверенная методика</span>
-          </div>
-          
           <h1>Профессиональный курс по логопедии для детей</h1>
-          
-          <p>Помогаем детям обрести чёткую и уверенную речь с помощью современных методик и индивидуального подхода к каждому ребёнку</p>
-          
+          <p>Помогаем детям обрести чёткую и уверенную речь с помощью современных методик</p>
           <div class="hero-buttons">
-            <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-              Записаться на курс
-            </button>
-            <button class="btn btn-secondary" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">
-              Узнать больше
-            </button>
-          </div>
-          
-          <div class="hero-stats">
-            <div class="stat-item">
-              <span class="stat-icon">👨‍🎓</span>
-              <span class="stat-number" data-target="10000">0</span>
-              <span class="stat-label">Довольных родителей</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-icon">⭐</span>
-              <span class="stat-number" data-target="98">0</span>
-              <span class="stat-label">% Успешных результатов</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-icon">🏆</span>
-              <span class="stat-number" data-target="15">0</span>
-              <span class="stat-label">Лет опыта</span>
-            </div>
+            <button class="btn btn-primary">Записаться на курс</button>
+            <button class="btn btn-secondary">Подробнее</button>
           </div>
         </div>
       </div>
@@ -1292,45 +986,6 @@
         this.reset();
       });
 
-      // Анимация счетчиков статистики
-      function animateCounters() {
-        const counters = document.querySelectorAll('.stat-number');
-        counters.forEach(counter => {
-          const target = parseFloat(counter.textContent);
-          const isPercentage = counter.textContent.includes('%');
-          const isDecimal = counter.textContent.includes('.');
-          const duration = 2000;
-          const start = 0;
-          const startTime = performance.now();
-
-          function updateCounter(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-            const current = start + (target - start) * easeOutQuart;
-
-            if (isPercentage) {
-              counter.textContent = Math.floor(current) + '%';
-            } else if (isDecimal) {
-              counter.textContent = current.toFixed(1);
-            } else {
-              counter.textContent = Math.floor(current) + '+';
-            }
-
-            if (progress < 1) {
-              requestAnimationFrame(updateCounter);
-            }
-          }
-
-          requestAnimationFrame(updateCounter);
-        });
-      }
-
-      // Запуск анимации при загрузке страницы
-      document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(animateCounters, 500);
-      });
-
       // Анимация появления элементов при скролле
       const observerOptions = {
         threshold: 0.1,
@@ -1351,57 +1006,6 @@
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         observer.observe(el);
-      });
-
-      // Создание анимированных частиц
-      function createParticles() {
-        const container = document.getElementById('heroParticles');
-        if (!container) return;
-        
-        const particleCount = 50;
-        
-        for (let i = 0; i < particleCount; i++) {
-          const particle = document.createElement('div');
-          particle.className = 'particle';
-          particle.style.left = Math.random() * 100 + '%';
-          particle.style.width = Math.random() * 6 + 4 + 'px';
-          particle.style.height = particle.style.width;
-          particle.style.animationDelay = Math.random() * 20 + 's';
-          particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
-          container.appendChild(particle);
-        }
-      }
-
-      // Анимация счетчиков
-      function animateCounters() {
-        const counters = document.querySelectorAll('.stat-number[data-target]');
-        
-        counters.forEach(counter => {
-          const target = parseInt(counter.getAttribute('data-target'));
-          const duration = 2000;
-          const step = target / (duration / 16);
-          let current = 0;
-          
-          const updateCounter = () => {
-            current += step;
-            if (current < target) {
-              counter.textContent = Math.floor(current).toLocaleString();
-              requestAnimationFrame(updateCounter);
-            } else {
-              counter.textContent = target.toLocaleString();
-            }
-          };
-          
-          updateCounter();
-        });
-      }
-
-      // Инициализация при загрузке страницы
-      document.addEventListener('DOMContentLoaded', () => {
-        createParticles();
-        
-        // Запуск анимации счетчиков через небольшую задержку
-        setTimeout(animateCounters, 500);
       });
     </script>
   </body>
