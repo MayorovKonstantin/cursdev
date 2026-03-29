@@ -3,7 +3,433 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Курс по логопедии для детей</title>
+    <style>
+      /* Сброс стилей */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        line-height: 1.6;
+        color: #4b5563;
+      }
+
+      /* Общие стили */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      h1, h2, h3 {
+        color: #1e40af;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      p {
+        margin-bottom: 15px;
+      }
+
+      button, .btn {
+        background-color: #2563eb;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+      }
+
+      button:hover, .btn:hover {
+        background-color: #1e40af;
+      }
+
+      /* Hero-блок */
+      .hero {
+        background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+        color: white;
+        padding: 120px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%23fff'%3E%3C/path%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%23fff'%3E%3C/path%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%23fff'%3E%3C/path%3E%3C/svg%3E") repeat-x bottom;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .hero h1 {
+        color: white;
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 1.25rem;
+        margin-bottom: 30px;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      /* Блок "О курсе" */
+      .about {
+        background-color: #f9fafb;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .feature-card {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+      }
+
+      /* Блок "Программа курса" */
+      .program {
+        background-color: white;
+      }
+
+      .modules {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .module {
+        background: #f9fafb;
+        padding: 25px;
+        border-radius: 10px;
+        border-left: 4px solid #2563eb;
+      }
+
+      /* Блок "Отзывы" */
+      .reviews {
+        background-color: #f9fafb;
+      }
+
+      .review-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .review-card {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .reviewer {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .reviewer img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-right: 15px;
+        object-fit: cover;
+      }
+
+      /* Блок "Контакты" */
+      .contact {
+        background-color: white;
+      }
+
+      .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 30px;
+        background: #f9fafb;
+        border-radius: 10px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #1e40af;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 1rem;
+      }
+
+      .form-group textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <!-- Hero-блок -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Профессиональный курс по логопедии для детей</h1>
+          <p>Помогаем детям обрести чёткую и уверенную речь с помощью современных методик</p>
+          <button class="btn">Записаться на курс</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Блок "О курсе" -->
+    <section class="section about">
+      <div class="container">
+        <h2>О нашем курсе</h2>
+        <p>Наш курс разработан опытными логопедами с многолетним стажем. Мы используем игровую методику обучения, которая делает занятия увлекательными и эффективными для детей любого возраста.</p>
+        
+        <div class="features">
+          <div class="feature-card">
+            <div class="feature-icon">👨‍🏫</div>
+            <h3>Индивидуальный подход</h3>
+            <p>Каждый ребёнок уникален, поэтому мы разрабатываем персональную программу для каждого ученика</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">🎓</div>
+            <h3>Опытные специалисты</h3>
+            <p>Наши логопеды имеют высшее образование и многолетний опыт работы с детьми</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">🎮</div>
+            <h3>Игровая методика</h3>
+            <p>Занятия проходят в игровой форме, что делает процесс обучения интересным и эффективным</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">✅</div>
+            <h3>Результат гарантирован</h3>
+            <p>Более 95% наших учеников показывают значительное улучшение речи уже через 3 месяца</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Блок "Программа курса" -->
+    <section class="section program">
+      <div class="container">
+        <h2>Программа обучения</h2>
+        
+        <div class="modules">
+          <div class="module">
+            <h3>Модуль 1: Диагностика речевых нарушений</h3>
+            <p>Комплексная диагностика текущего уровня речевого развития, выявление проблем и определение индивидуального плана коррекции.</p>
+          </div>
+          
+          <div class="module">
+            <h3>Модуль 2: Артикуляционная гимнастика</h3>
+            <p>Упражнения для развития моторики артикуляционного аппарата, развитие правильного дыхания и голоса.</p>
+          </div>
+          
+          <div class="module">
+            <h3>Модуль 3: Постановка звуков</h3>
+            <p>Работа над правильным произношением звуков, начиная с простых и заканчивая сложными сочетаниями.</p>
+          </div>
+          
+          <div class="module">
+            <h3>Модуль 4: Развитие связной речи</h3>
+            <p>Формирование навыков построения предложений, развитие словарного запаса и грамматического строя речи.</p>
+          </div>
+          
+          <div class="module">
+            <h3>Модуль 5: Работа с родителями</h3>
+            <p>Консультации для родителей, обучение методам поддержки ребенка дома и рекомендации по домашним заданиям.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Блок "Отзывы" -->
+    <section class="section reviews">
+      <div class="container">
+        <h2>Отзывы наших учеников</h2>
+        
+        <div class="review-cards">
+          <div class="review-card">
+            <div class="reviewer">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8' r='4' fill='%232563eb'/%3E%3Cpath fill='%232563eb' d='M20 19v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6z'/%3E%3C/svg%3E" alt="Анна Петрова">
+              <div>
+                <h3>Анна Петрова</h3>
+                <p>Мама ученика</p>
+              </div>
+            </div>
+            <p>Мой ребёнок стал намного увереннее говорить после 3 месяцев занятий! Большое спасибо за терпение и профессионализм!</p>
+          </div>
+          
+          <div class="review-card">
+            <div class="reviewer">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8' r='4' fill='%232563eb'/%3E%3Cpath fill='%232563eb' d='M20 19v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6z'/%3E%3C/svg%3E" alt="Сергей Иванов">
+              <div>
+                <h3>Сергей Иванов</h3>
+                <p>Папа ученика</p>
+              </div>
+            </div>
+            <p>Профессиональный подход и индивидуальная программа. Рекомендую всем родителям, кто заботится о развитии речи своего ребёнка.</p>
+          </div>
+          
+          <div class="review-card">
+            <div class="reviewer">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8' r='4' fill='%232563eb'/%3E%3Cpath fill='%232563eb' d='M20 19v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6z'/%3E%3C/svg%3E" alt="Елена Смирнова">
+              <div>
+                <h3>Елена Смирнова</h3>
+                <p>Мама ученика</p>
+              </div>
+            </div>
+            <p>Игровая методика очень нравится детям. Мой сын с удовольствием ходит на занятия и делится новыми знаниями дома.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Блок "Контакты" -->
+    <section class="section contact">
+      <div class="container">
+        <h2>Свяжитесь с нами</h2>
+        
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Имя</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Телефон</label>
+              <input type="tel" id="phone" name="phone" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Сообщение</label>
+              <textarea id="message" name="message" placeholder="Введите ваше сообщение"></textarea>
+            </div>
+            
+            <button type="submit" class="btn">Отправить</button>
+          </form>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+          <p><strong>Телефон:</strong> +7 (999) 123-45-67</p>
+          <p><strong>Email:</strong> info@logoped-kurs.ru</p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Плавная прокрутка при клике на якорные ссылки
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Валидация формы
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const email = document.getElementById('email').value.trim();
+        
+        if (!name || !phone || !email) {
+          alert('Пожалуйста, заполните все обязательные поля');
+          return;
+        }
+        
+        // Здесь можно добавить отправку формы на сервер
+        alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
+        this.reset();
+      });
+
+      // Анимация появления элементов при скролле
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.feature-card, .module, .review-card').forEach(el => {
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(el);
+      });
+    </script>
+  </body>
 </html>
