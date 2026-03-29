@@ -12,10 +12,101 @@
         box-sizing: border-box;
       }
 
+      /* Навигация */
+      .navbar {
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 15px 0;
+      }
+
+      .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo h2 {
+        font-size: 1.5rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 30px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #495464;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #0056D2;
+      }
+
+      .nav-buttons {
+        display: flex;
+        gap: 15px;
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        border: 1px solid #0056D2;
+        color: #0056D2;
+      }
+
+      .btn-outline:hover {
+        background-color: #f0f7ff;
+      }
+
+      .btn-primary {
+        background-color: #0056D2;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+        font-weight: 500;
+      }
+
+      .btn-primary:hover {
+        background-color: #003d99;
+      }
+
+      .btn-secondary {
+        background-color: white;
+        color: #0056D2;
+        border: 1px solid #0056D2;
+        padding: 12px 24px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: all 0.3s;
+        font-weight: 500;
+      }
+
+      .btn-secondary:hover {
+        background-color: #f0f7ff;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+      }
+
       body {
-        font-family: system-ui, -apple-system, sans-serif;
+        font-family: 'Google Sans', 'Segoe UI', Roboto, Arial, sans-serif;
         line-height: 1.6;
-        color: #4b5563;
+        color: #222;
+        background-color: #f7f9fa;
       }
 
       /* Общие стили */
@@ -30,8 +121,9 @@
       }
 
       h1, h2, h3 {
-        color: #1e40af;
+        color: #0056D2;
         margin-bottom: 20px;
+        font-weight: 600;
       }
 
       h1 {
@@ -46,26 +138,28 @@
 
       p {
         margin-bottom: 15px;
+        color: #495464;
       }
 
       button, .btn {
-        background-color: #2563eb;
+        background-color: #0056D2;
         color: white;
         border: none;
         padding: 12px 24px;
-        border-radius: 6px;
+        border-radius: 4px;
         cursor: pointer;
         font-size: 1rem;
         transition: background-color 0.3s;
+        font-weight: 500;
       }
 
       button:hover, .btn:hover {
-        background-color: #1e40af;
+        background-color: #003d99;
       }
 
       /* Hero-блок */
       .hero {
-        background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+        background: linear-gradient(135deg, #0056D2 0%, #003d99 100%);
         color: white;
         padding: 120px 0;
         position: relative;
@@ -94,6 +188,7 @@
         color: white;
         font-size: 3.5rem;
         margin-bottom: 20px;
+        font-weight: 700;
       }
 
       .hero p {
@@ -104,7 +199,7 @@
 
       /* Блок "О курсе" */
       .about {
-        background-color: #f9fafb;
+        background-color: white;
       }
 
       .features {
@@ -117,9 +212,16 @@
       .feature-card {
         background: white;
         padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         text-align: center;
+        border: 1px solid #e0e6ed;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
       }
 
       .feature-icon {
@@ -127,9 +229,309 @@
         margin-bottom: 20px;
       }
 
+      /* Стили для карточек курсов */
+      .courses-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .course-card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e0e6ed;
+        padding: 25px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .course-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .course-badge {
+        display: inline-block;
+        background-color: #e6f0ff;
+        color: #0056D2;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        width: fit-content;
+        margin-bottom: 15px;
+      }
+
+      .course-badge-advanced {
+        background-color: #fff4e6;
+        color: #d26d00;
+      }
+
+      .course-header {
+        margin-bottom: 15px;
+      }
+
+      .course-header h3 {
+        margin: 0 0 10px 0;
+        color: #0056D2;
+        font-size: 1.4rem;
+      }
+
+      .course-meta {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9rem;
+        color: #495464;
+      }
+
+      .course-features {
+        list-style: none;
+        padding: 0;
+        margin: 15px 0;
+        flex-grow: 1;
+      }
+
+      .course-features li {
+        padding: 5px 0;
+        color: #495464;
+      }
+
+      .course-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #e0e6ed;
+      }
+
+      .course-price {
+        font-weight: 700;
+        color: #0056D2;
+        font-size: 1.2rem;
+      }
+
+      /* Стили для программы курса */
+      .curriculum {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .curriculum-item {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e0e6ed;
+        overflow: hidden;
+      }
+
+      .curriculum-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 25px;
+        background-color: #f9fbfd;
+        border-bottom: 1px solid #e0e6ed;
+      }
+
+      .curriculum-header h3 {
+        margin: 0;
+        color: #0056D2;
+        font-size: 1.2rem;
+      }
+
+      .curriculum-info {
+        display: flex;
+        gap: 15px;
+        font-size: 0.9rem;
+        color: #495464;
+      }
+
+      .lessons-count, .duration {
+        display: flex;
+        align-items: center;
+      }
+
+      .lessons-count::before {
+        content: "📚";
+        margin-right: 5px;
+      }
+
+      .duration::before {
+        content: "⏱️";
+        margin-right: 5px;
+      }
+
+      .curriculum-content {
+        padding: 20px 25px;
+      }
+
+      .curriculum-content ul {
+        list-style: none;
+        padding: 0;
+        margin: 15px 0;
+      }
+
+      .curriculum-content li {
+        padding: 5px 0;
+        color: #495464;
+      }
+
+      .curriculum-content li::before {
+        content: "•";
+        color: #0056D2;
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+      }
+
+      /* Стили для отзывов */
+      .testimonials {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .testimonial-card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e0e6ed;
+        padding: 25px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .testimonial-header {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+
+      .testimonial-avatar img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .testimonial-info {
+        flex-grow: 1;
+      }
+
+      .testimonial-info h4 {
+        margin: 0 0 5px 0;
+        color: #0056D2;
+      }
+
+      .testimonial-info p {
+        margin: 0 0 5px 0;
+        font-size: 0.9rem;
+        color: #495464;
+      }
+
+      .testimonial-rating {
+        color: #ffc107;
+        font-size: 0.9rem;
+      }
+
+      .testimonial-body p {
+        margin: 0;
+        color: #495464;
+        font-style: italic;
+      }
+
+      /* Стили для формы контактов */
+      .cta-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-top: 40px;
+      }
+
+      .contact-form {
+        flex: 1;
+        min-width: 300px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e0e6ed;
+        padding: 30px;
+      }
+
+      .form-row {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+
+      .form-row .form-group {
+        flex: 1;
+      }
+
+      .form-select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #d1d5db;
+        border-radius: 4px;
+        font-size: 1rem;
+        background-color: white;
+        color: #495464;
+      }
+
+      .contact-info {
+        flex: 0 0 300px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e0e6ed;
+        padding: 30px;
+      }
+
+      .info-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .info-item {
+        display: flex;
+        gap: 15px;
+        padding: 15px 0;
+        border-bottom: 1px solid #e0e6ed;
+      }
+
+      .info-item:last-child {
+        border-bottom: none;
+      }
+
+      .info-icon {
+        font-size: 1.5rem;
+      }
+
+      .info-text h4 {
+        margin: 0 0 5px 0;
+        color: #0056D2;
+      }
+
+      .info-text p {
+        margin: 0;
+        color: #495464;
+      }
+
       /* Блок "Программа курса" */
       .program {
-        background-color: white;
+        background-color: #f7f9fa;
       }
 
       .modules {
@@ -139,15 +541,22 @@
       }
 
       .module {
-        background: #f9fafb;
+        background: white;
         padding: 25px;
-        border-radius: 10px;
-        border-left: 4px solid #2563eb;
+        border-radius: 8px;
+        border-left: 4px solid #0056D2;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .module:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
       }
 
       /* Блок "Отзывы" */
       .reviews {
-        background-color: #f9fafb;
+        background-color: white;
       }
 
       .review-cards {
@@ -159,8 +568,9 @@
       .review-card {
         background: white;
         padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e0e6ed;
       }
 
       .reviewer {
@@ -179,15 +589,17 @@
 
       /* Блок "Контакты" */
       .contact {
-        background-color: white;
+        background-color: #f7f9fa;
       }
 
       .contact-form {
         max-width: 600px;
         margin: 0 auto;
         padding: 30px;
-        background: #f9fafb;
-        border-radius: 10px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e0e6ed;
       }
 
       .form-group {
@@ -197,8 +609,8 @@
       .form-group label {
         display: block;
         margin-bottom: 5px;
-        font-weight: bold;
-        color: #1e40af;
+        font-weight: 500;
+        color: #0056D2;
       }
 
       .form-group input,
@@ -206,7 +618,7 @@
         width: 100%;
         padding: 12px;
         border: 1px solid #d1d5db;
-        border-radius: 6px;
+        border-radius: 4px;
         font-size: 1rem;
       }
 
@@ -217,161 +629,326 @@
     </style>
   </head>
   <body>
+    <!-- Навигация -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-content">
+          <div class="logo">
+            <h2>Logoped<span style="color:#0056D2;">.io</span></h2>
+          </div>
+          <div class="nav-links">
+            <a href="#about">О курсе</a>
+            <a href="#program">Программа</a>
+            <a href="#reviews">Отзывы</a>
+            <a href="#contact">Контакты</a>
+          </div>
+          <div class="nav-buttons">
+            <button class="btn btn-outline">Войти</button>
+            <button class="btn">Зарегистрироваться</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
     <!-- Hero-блок -->
     <section class="hero">
       <div class="container">
         <div class="hero-content">
           <h1>Профессиональный курс по логопедии для детей</h1>
           <p>Помогаем детям обрести чёткую и уверенную речь с помощью современных методик</p>
-          <button class="btn">Записаться на курс</button>
+          <div class="hero-buttons">
+            <button class="btn btn-primary">Записаться на курс</button>
+            <button class="btn btn-secondary">Подробнее</button>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Блок "О курсе" -->
-    <section class="section about">
+    <section class="section about" id="about">
       <div class="container">
-        <h2>О нашем курсе</h2>
-        <p>Наш курс разработан опытными логопедами с многолетним стажем. Мы используем игровую методику обучения, которая делает занятия увлекательными и эффективными для детей любого возраста.</p>
+        <h2>Наши курсы</h2>
+        <p>Выберите курс, который поможет вашему ребенку достичь успеха в развитии речи</p>
         
-        <div class="features">
-          <div class="feature-card">
-            <div class="feature-icon">👨‍🏫</div>
-            <h3>Индивидуальный подход</h3>
-            <p>Каждый ребёнок уникален, поэтому мы разрабатываем персональную программу для каждого ученика</p>
+        <div class="courses-grid">
+          <div class="course-card">
+            <div class="course-badge">Новичок</div>
+            <div class="course-header">
+              <h3>Основы логопедии</h3>
+              <div class="course-meta">
+                <span class="course-duration">4 недели</span>
+                <span class="course-rating">⭐ 4.8 (120)</span>
+              </div>
+            </div>
+            <p>Идеально подходит для детей 3-5 лет, которые только начинают работать над речью</p>
+            <ul class="course-features">
+              <li>✓ Артикуляционная гимнастика</li>
+              <li>✓ Развитие слухового внимания</li>
+              <li>✓ Игровые упражнения</li>
+            </ul>
+            <div class="course-footer">
+              <span class="course-price">₽12,000</span>
+              <button class="btn">Записаться</button>
+            </div>
           </div>
           
-          <div class="feature-card">
-            <div class="feature-icon">🎓</div>
-            <h3>Опытные специалисты</h3>
-            <p>Наши логопеды имеют высшее образование и многолетний опыт работы с детьми</p>
+          <div class="course-card">
+            <div class="course-badge course-badge-advanced">Продвинутый</div>
+            <div class="course-header">
+              <h3>Коррекция звукопроизношения</h3>
+              <div class="course-meta">
+                <span class="course-duration">6 недель</span>
+                <span class="course-rating">⭐ 4.9 (98)</span>
+              </div>
+            </div>
+            <p>Для детей 5-7 лет с нарушениями звукопроизношения</p>
+            <ul class="course-features">
+              <li>✓ Постановка сложных звуков</li>
+              <li>✓ Автоматизация звуков</li>
+              <li>✓ Связная речь</li>
+            </ul>
+            <div class="course-footer">
+              <span class="course-price">₽18,000</span>
+              <button class="btn">Записаться</button>
+            </div>
           </div>
           
-          <div class="feature-card">
-            <div class="feature-icon">🎮</div>
-            <h3>Игровая методика</h3>
-            <p>Занятия проходят в игровой форме, что делает процесс обучения интересным и эффективным</p>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon">✅</div>
-            <h3>Результат гарантирован</h3>
-            <p>Более 95% наших учеников показывают значительное улучшение речи уже через 3 месяца</p>
+          <div class="course-card">
+            <div class="course-badge">Эксперт</div>
+            <div class="course-header">
+              <h3>Подготовка к школе</h3>
+              <div class="course-meta">
+                <span class="course-duration">8 недель</span>
+                <span class="course-rating">⭐ 4.7 (142)</span>
+              </div>
+            </div>
+            <p>Комплексная подготовка к школьному обучению</p>
+            <ul class="course-features">
+              <li>✓ Готовность к чтению</li>
+              <li>✓ Развитие письма</li>
+              <li>✓ Поддержка родителей</li>
+            </ul>
+            <div class="course-footer">
+              <span class="course-price">₽22,000</span>
+              <button class="btn">Записаться</button>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Блок "Программа курса" -->
-    <section class="section program">
+    <section class="section program" id="program">
       <div class="container">
         <h2>Программа обучения</h2>
+        <p>Наши курсы разработаны экспертами в области логопедии и педагогики</p>
         
-        <div class="modules">
-          <div class="module">
-            <h3>Модуль 1: Диагностика речевых нарушений</h3>
-            <p>Комплексная диагностика текущего уровня речевого развития, выявление проблем и определение индивидуального плана коррекции.</p>
+        <div class="curriculum">
+          <div class="curriculum-item">
+            <div class="curriculum-header">
+              <h3>Неделя 1-2: Диагностика и оценка</h3>
+              <div class="curriculum-info">
+                <span class="lessons-count">5 уроков</span>
+                <span class="duration">≈ 4 ч</span>
+              </div>
+            </div>
+            <div class="curriculum-content">
+              <p>Комплексная диагностика текущего уровня речевого развития, выявление проблем и определение индивидуального плана коррекции.</p>
+              <ul>
+                <li>Оценка артикуляции</li>
+                <li>Анализ звукопроизношения</li>
+                <li>Выявление нарушений речи</li>
+              </ul>
+            </div>
           </div>
           
-          <div class="module">
-            <h3>Модуль 2: Артикуляционная гимнастика</h3>
-            <p>Упражнения для развития моторики артикуляционного аппарата, развитие правильного дыхания и голоса.</p>
+          <div class="curriculum-item">
+            <div class="curriculum-header">
+              <h3>Неделя 3-6: Артикуляционная гимнастика</h3>
+              <div class="curriculum-info">
+                <span class="lessons-count">12 уроков</span>
+                <span class="duration">≈ 10 ч</span>
+              </div>
+            </div>
+            <div class="curriculum-content">
+              <p>Упражнения для развития моторики артикуляционного аппарата, развитие правильного дыхания и голоса.</p>
+              <ul>
+                <li>Упражнения на дыхание</li>
+                <li>Развитие мелкой моторики</li>
+                <li>Артикуляционные упражнения</li>
+              </ul>
+            </div>
           </div>
           
-          <div class="module">
-            <h3>Модуль 3: Постановка звуков</h3>
-            <p>Работа над правильным произношением звуков, начиная с простых и заканчивая сложными сочетаниями.</p>
+          <div class="curriculum-item">
+            <div class="curriculum-header">
+              <h3>Неделя 7-10: Постановка звуков</h3>
+              <div class="curriculum-info">
+                <span class="lessons-count">15 уроков</span>
+                <span class="duration">≈ 12 ч</span>
+              </div>
+            </div>
+            <div class="curriculum-content">
+              <p>Работа над правильным произношением звуков, начиная с простых и заканчивая сложными сочетаниями.</p>
+              <ul>
+                <li>Постановка отдельных звуков</li>
+                <li>Автоматизация звуков</li>
+                <li>Перенос в слова и предложения</li>
+              </ul>
+            </div>
           </div>
           
-          <div class="module">
-            <h3>Модуль 4: Развитие связной речи</h3>
-            <p>Формирование навыков построения предложений, развитие словарного запаса и грамматического строя речи.</p>
-          </div>
-          
-          <div class="module">
-            <h3>Модуль 5: Работа с родителями</h3>
-            <p>Консультации для родителей, обучение методам поддержки ребенка дома и рекомендации по домашним заданиям.</p>
+          <div class="curriculum-item">
+            <div class="curriculum-header">
+              <h3>Неделя 11-14: Развитие связной речи</h3>
+              <div class="curriculum-info">
+                <span class="lessons-count">14 уроков</span>
+                <span class="duration">≈ 11 ч</span>
+              </div>
+            </div>
+            <div class="curriculum-content">
+              <p>Формирование навыков построения предложений, развитие словарного запаса и грамматического строя речи.</p>
+              <ul>
+                <li>Развитие лексики</li>
+                <li>Грамматические упражнения</li>
+                <li>Связная речь</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Блок "Отзывы" -->
-    <section class="section reviews">
+    <section class="section reviews" id="reviews">
       <div class="container">
-        <h2>Отзывы наших учеников</h2>
+        <h2>Отзывы студентов</h2>
+        <p>Более 10,000 довольных родителей доверили нам развитие речи своих детей</p>
         
-        <div class="review-cards">
-          <div class="review-card">
-            <div class="reviewer">
-              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8' r='4' fill='%232563eb'/%3E%3Cpath fill='%232563eb' d='M20 19v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6z'/%3E%3C/svg%3E" alt="Анна Петрова">
-              <div>
-                <h3>Анна Петрова</h3>
-                <p>Мама ученика</p>
+        <div class="testimonials">
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8' r='4' fill='%230056D2'/%3E%3Cpath fill='%230056D2' d='M20 19v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6z'/%3E%3C/svg%3E" alt="Анна Петрова">
+              </div>
+              <div class="testimonial-info">
+                <h4>Анна Петрова</h4>
+                <p>Мама ученика, Москва</p>
+                <div class="testimonial-rating">
+                  ⭐⭐⭐⭐⭐
+                </div>
               </div>
             </div>
-            <p>Мой ребёнок стал намного увереннее говорить после 3 месяцев занятий! Большое спасибо за терпение и профессионализм!</p>
+            <div class="testimonial-body">
+              <p>Мой ребёнок стал намного увереннее говорить после 3 месяцев занятий! Большое спасибо за терпение и профессионализм! Курс помог не только с речью, но и с уверенностью в себе.</p>
+            </div>
           </div>
           
-          <div class="review-card">
-            <div class="reviewer">
-              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8' r='4' fill='%232563eb'/%3E%3Cpath fill='%232563eb' d='M20 19v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6z'/%3E%3C/svg%3E" alt="Сергей Иванов">
-              <div>
-                <h3>Сергей Иванов</h3>
-                <p>Папа ученика</p>
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8' r='4' fill='%230056D2'/%3E%3Cpath fill='%230056D2' d='M20 19v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6z'/%3E%3C/svg%3E" alt="Сергей Иванов">
+              </div>
+              <div class="testimonial-info">
+                <h4>Сергей Иванов</h4>
+                <p>Папа ученика, Санкт-Петербург</p>
+                <div class="testimonial-rating">
+                  ⭐⭐⭐⭐⭐
+                </div>
               </div>
             </div>
-            <p>Профессиональный подход и индивидуальная программа. Рекомендую всем родителям, кто заботится о развитии речи своего ребёнка.</p>
+            <div class="testimonial-body">
+              <p>Профессиональный подход и индивидуальная программа. Ребёнок с удовольствием ходит на занятия. Рекомендую всем родителям, кто заботится о развитии речи своего ребёнка.</p>
+            </div>
           </div>
           
-          <div class="review-card">
-            <div class="reviewer">
-              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8' r='4' fill='%232563eb'/%3E%3Cpath fill='%232563eb' d='M20 19v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6z'/%3E%3C/svg%3E" alt="Елена Смирнова">
-              <div>
-                <h3>Елена Смирнова</h3>
-                <p>Мама ученика</p>
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8' r='4' fill='%230056D2'/%3E%3Cpath fill='%230056D2' d='M20 19v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6z'/%3E%3C/svg%3E" alt="Елена Смирнова">
+              </div>
+              <div class="testimonial-info">
+                <h4>Елена Смирнова</h4>
+                <p>Мама ученика, Новосибирск</p>
+                <div class="testimonial-rating">
+                  ⭐⭐⭐⭐⭐
+                </div>
               </div>
             </div>
-            <p>Игровая методика очень нравится детям. Мой сын с удовольствием ходит на занятия и делится новыми знаниями дома.</p>
+            <div class="testimonial-body">
+              <p>Игровая методика действительно работает! Мой сын с удовольствием ходит на занятия и делится новыми знаниями дома. Результаты уже видны через месяц занятий.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Блок "Контакты" -->
-    <section class="section contact">
+    <section class="section contact" id="contact">
       <div class="container">
-        <h2>Свяжитесь с нами</h2>
+        <h2>Начните обучение сегодня</h2>
+        <p>Присоединяйтесь к тысячам довольных студентов и начните свой путь к успеху</p>
         
-        <div class="contact-form">
-          <form id="contactForm">
-            <div class="form-group">
-              <label for="name">Имя</label>
-              <input type="text" id="name" name="name" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="phone">Телефон</label>
-              <input type="tel" id="phone" name="phone" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="message">Сообщение</label>
-              <textarea id="message" name="message" placeholder="Введите ваше сообщение"></textarea>
-            </div>
-            
-            <button type="submit" class="btn">Отправить</button>
-          </form>
-        </div>
-        
-        <div style="text-align: center; margin-top: 40px;">
-          <p><strong>Телефон:</strong> +7 (999) 123-45-67</p>
-          <p><strong>Email:</strong> info@logoped-kurs.ru</p>
+        <div class="cta-container">
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Ваше имя</label>
+                  <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
+                </div>
+                
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required placeholder="Введите ваш email">
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="course">Выберите интересующий вас курс</label>
+                <select id="course" name="course" class="form-select">
+                  <option value="">Выберите курс</option>
+                  <option value="basics">Основы логопедии</option>
+                  <option value="correction">Коррекция звукопроизношения</option>
+                  <option value="preparation">Подготовка к школе</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="message">Расскажите о целях вашего ребенка</label>
+                <textarea id="message" name="message" placeholder="Опишите, какие трудности с речью у вашего ребенка и какие цели вы хотите достичь..." rows="4"></textarea>
+              </div>
+              
+              <button type="submit" class="btn btn-primary">Записаться на курс</button>
+            </form>
+          </div>
+          
+          <div class="contact-info">
+            <h3>Контактная информация</h3>
+            <ul class="info-list">
+              <li class="info-item">
+                <div class="info-icon">📞</div>
+                <div class="info-text">
+                  <h4>Телефон</h4>
+                  <p>+7 (999) 123-45-67</p>
+                </div>
+              </li>
+              <li class="info-item">
+                <div class="info-icon">✉️</div>
+                <div class="info-text">
+                  <h4>Email</h4>
+                  <p>info@logoped-kurs.ru</p>
+                </div>
+              </li>
+              <li class="info-item">
+                <div class="info-icon">📍</div>
+                <div class="info-text">
+                  <h4>Адрес</h4>
+                  <p>Москва, ул. Примерная, д. 10</p>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -396,10 +973,10 @@
         e.preventDefault();
         
         const name = document.getElementById('name').value.trim();
-        const phone = document.getElementById('phone').value.trim();
         const email = document.getElementById('email').value.trim();
+        const course = document.getElementById('course').value;
         
-        if (!name || !phone || !email) {
+        if (!name || !email || !course) {
           alert('Пожалуйста, заполните все обязательные поля');
           return;
         }
@@ -424,7 +1001,7 @@
         });
       }, observerOptions);
 
-      document.querySelectorAll('.feature-card, .module, .review-card').forEach(el => {
+      document.querySelectorAll('.course-card, .curriculum-item, .testimonial-card').forEach(el => {
         el.style.opacity = 0;
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
